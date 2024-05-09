@@ -1,5 +1,7 @@
 ## Interactive Testing Tool  
 
+Insert this script in any website and track your users. Know they uses cases to increase your sell or accessibility
+
 ### Tracker Module  
 
 The Tracker module enables automatic recording of user interactions during testing sessions. By opening `tracker/index.html`, the tool captures various actions such as mouse movements, left clicks, scrolling, and key presses. Once testing is complete, simply click on the "Save interactions" button to generate a comprehensive log of user activities.
@@ -35,3 +37,5 @@ The Simulation module, accessed through simulation/index.html, is designed to pr
 #### Features:  
 Automatic Screen Adjustment: The simulation dynamically adjusts its display to fit various screen resolutions. It means than when you will "replay action", capture footage will be adapted to your screen.
 Visual Feedback: The base64 image stored at the beginning of the interaction log is rendered in the background (with low resolution to avoid heavy Json), offering a visual representation of user interactions.
+
+*PS: some special keypress are present in code but dont give visual feedback on the fake keyboard
