@@ -1,0 +1,84 @@
+*, body {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+#fake-keyboard {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(176, 242, 225, 0.60);
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+}
+
+.key {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.key img {
+    height:1rem;
+    width:1rem;
+}
+
+.key:hover {
+    background-color: #f0f0f0;
+}
+
+.key.active {
+    background-color: #6cb7ff;
+}
+
+.highlight {
+    background-color: red;
+}
+
+#cursor {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    border-radius: 50%;
+}
+
+.ripple {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 0, 0, 0.3);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: rippleEffect 0.5s ease-out forwards;
+}
+
+@keyframes rippleEffect {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+#number-rank, #first-rank, #second-rank, #third-rank, #fourth-rank {
+    display:flex;
+    flex-flow: row;
+    flex-wrap: nowrap;
+}
