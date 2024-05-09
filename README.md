@@ -38,4 +38,12 @@ The Simulation module, accessed through simulation/index.html, is designed to pr
 Automatic Screen Adjustment: The simulation dynamically adjusts its display to fit various screen resolutions. It means than when you will "replay action", capture footage will be adapted to your screen.
 Visual Feedback: The base64 image stored at the beginning of the interaction log is rendered in the background (with low resolution to avoid heavy Json), offering a visual representation of user interactions.
 
+
+V2 upgrade could be:
+-timestamp to replay in realTime what the user did
+-implement scroll in replay view (incompleted for now)
+-recording a new screenshot image to display it in background everytime the user changed pages
+-getting a feedback of how many time did the user spent on our app
+-getting the URL displayed somewhere on the screen when we play the interactions.json
+
 *PS: some special keypress are present in code but dont give visual feedback on the fake keyboard
