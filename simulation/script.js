@@ -1,3 +1,6 @@
+/**
+ * Rejoue les interactions enregistrées en fonction des données récupérées depuis le fichier JSON.
+ */
 function rejouerInteractions() {
     fetch('interactions.json')
         .then(response => response.json())
@@ -68,14 +71,24 @@ function rejouerInteractions() {
 }
 
 
-// Fonction pour simuler le déplacement du curseur de la souris
+/**
+ * Simule le déplacement du curseur de la souris à une position spécifiée.
+ * @param {number} x - La position horizontale du curseur.
+ * @param {number} y - La position verticale du curseur.
+ */
 function deplacerCurseur(x, y) {
     const cursor = document.getElementById('cursor');
     cursor.style.left = x + 'px';
     cursor.style.top = y + 'px';
 }
 
-// Fonction pour simuler un clic de souris avec un effet d'onde
+
+
+/**
+ * Simule un clic de souris avec un effet d'onde à une position spécifiée.
+ * @param {number} x - La position horizontale du clic.
+ * @param {number} y - La position verticale du clic.
+ */
 function simulerClic(x, y) {
     const ripple = document.createElement('div');
     ripple.classList.add('ripple');
@@ -87,7 +100,12 @@ function simulerClic(x, y) {
     }, 500); // Supprimer l'effet d'onde après 0.5 seconde
 }
 
-// Fonction pour simuler une pression de touche
+
+
+/**
+ * Simule une pression de touche spécifiée.
+ * @param {string} key - La touche à simuler (en majuscule).
+ */
 function simulerKeyPress(key) {
     // Passage en majuscule
     const upperCaseKey = key.toUpperCase();
@@ -109,7 +127,9 @@ function simulerKeyPress(key) {
 }
 
 
-// Fonction pour écouter les touches du clavier
+/**
+ * A exécuter lorsque la page HTML est chargée.
+ */
 document.addEventListener('keydown', function(event) {
     const key = event.key.toUpperCase();
     const keyboardKey = document.querySelector(`#fake-keyboard .key[data-key="${key}"]`);

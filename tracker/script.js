@@ -1,14 +1,34 @@
+/**
+ * Tableau pour stocker les interactions.
+ * @type {Object[]}
+ */
 // Tableau pour stocker les interactions
 let interactions = [];
 
-// Stockage de la largeur et de la hauteur de l'écran
+/**
+ * Largeur de l'écran.
+ * @type {number}
+ */
 const screenWidth = window.innerWidth;
+
+/**
+ * Hauteur de l'écran.
+ * @type {number}
+ */
 const screenHeight = window.innerHeight;
 
-// Stockage initial de l'URL de la page
+/**
+ * URL de la page actuelle.
+ * @type {string}
+ */
 let currentPageURL = window.location.href;
 
-// Fonction pour enregistrer les interactions
+
+/**
+ * Enregistre une interaction.
+ * @param {string} type - Le type d'interaction.
+ * @param {Object} details - Les détails de l'interaction.
+ */
 function enregistrerInteraction(type, details) {
     // Ajouter l'URL de la page actuelle uniquement si elle a changé depuis la dernière interaction enregistrée
     if (window.location.href !== currentPageURL) {
@@ -19,7 +39,11 @@ function enregistrerInteraction(type, details) {
     }
 }
 
-// Fonction pour détecter le type de périphérique
+
+/**
+ * Détermine le type de périphérique.
+ * @returns {string} - Le type de périphérique ('mobile' ou 'desktop').
+ */
 function detectDevice() {
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
         return 'mobile';
@@ -28,7 +52,10 @@ function detectDevice() {
     }
 }
 
-// Fonction pour rejouer les interactions enregistrées
+
+/**
+ * Réexécute les interactions enregistrées.
+ */
 function rejouerInteractions() {
     interactions.forEach(function(interaction) {
         switch (interaction.type) {
@@ -50,7 +77,10 @@ function rejouerInteractions() {
     });
 }
 
-// Fonction pour enregistrer les interactions dans un fichier
+
+/**
+ * Sauvegarde les interactions dans un fichier.
+ */
 function sauvegarderInteractions() {
     // Ajouter la largeur et la hauteur de l'écran aux détails des interactions
     interactions.push({ type: 'screenSize', details: { screenWidth: window.innerWidth, screenHeight: window.innerHeight } });
@@ -67,6 +97,12 @@ function sauvegarderInteractions() {
     URL.revokeObjectURL(url);
 }
 
+
+
+/**
+ * Prend une capture d'écran de l'élément body de la page.
+ * @returns {Promise<Object>} - Une promesse résolvant avec l'image base64 de la capture d'écran.
+ */
 function takeNodeScreenshot() {
     // Retourner une promesse qui résout avec l'image base64
     return new Promise((resolve, reject) => {
@@ -79,7 +115,11 @@ function takeNodeScreenshot() {
     });
 }
 
-// Fonction à exécuter lorsque la page HTML est chargée
+
+
+/**
+ * Fonction à exécuter lorsque la page HTML est chargée.
+ */
 document.addEventListener('DOMContentLoaded', async function() {
     // Insérer l'URL sur laquelle nous sommes :
     interactions.push(await takeNodeScreenshot());
